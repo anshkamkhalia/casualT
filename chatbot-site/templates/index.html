@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CasualT</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="icon" href="{{ url_for('static', filename='icon.png') }}" >
+</head>
+<body>
+    
+    <div class="chat-container">
+        {% if responses %}
+        {% for response in responses %} 
+            <!-- User Message -->
+            <div class="user_message">
+                <div class="bubble right">
+                    {{ response["question"] | safe}}
+                </div>
+                <span class="name">User  {{ response["date" ]}} {{ response["time"] }}</span>
+            </div>
+            <!-- Chatbot Message -->
+            <div class="bot_message">
+                <div class="bubble left">
+                    {{ response["response"] | safe }}
+                </div>
+
+                <span class="name">AI {{ response["date" ]}} {{ response["time"] }}</span>
+            </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+    <div class="ask_q_container">
+        <form method="POST" action="/">
+            <input type="text" name="user_message" placeholder="Type your question..." style="width: 300px;" required>
+            <button type="submit">Ask</button>
+        </form>
+
+        <form method="POST" action="/">
+            <button type="submit" name="clear_chat">Clear Chat</button>
+        </form>
+    </div>
+
+    <script>
+        window.scrollTo(0, document.documentElement.scrollHeight);
+    </script>
+</body>
+</html>
+
