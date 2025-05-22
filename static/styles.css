@@ -1,0 +1,102 @@
+body {
+  min-height: 100vh;
+  font-family: "Outfit", sans-serif;
+  background-color: #0f0f0f;
+}
+
+.chat-container {
+  height: 100%;
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.user_message,
+.bot_message {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+}
+
+.bubble {
+  padding: 12px 16px;
+  border-radius: 18px;
+  max-width: 75%;
+  line-height: 1.4;
+  word-wrap: break-word;
+  display: inline-block;
+}
+
+.bubble.right {
+  background-color: #0062ff;
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 0;
+}
+
+.user_message .name {
+  font-size: 0.8em;
+  color: #888;
+  margin-top: 4px;
+  padding: 0 10px;
+  align-self: flex-end;
+}
+.bot_message .name {
+  font-size: 0.8em;
+  color: #888;
+  margin-top: 4px;
+  padding: 0 10px;
+  align-self: flex-start;
+}
+
+.bubble.left {
+  background-color: #f0f0f0;
+  color: black;
+  align-self: flex-start;
+  border-bottom-left-radius: 0;
+}
+
+form {
+  font-family: "Outfit";
+  max-width: 700px;
+  margin: 20px auto;
+  display: flex;
+  gap: 10px;
+}
+
+input,
+button {
+  font-family: inherit; /* Inherits from parent element */
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  font-size: 1em;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 10px 16px;
+  font-size: 1em;
+  border-radius: 8px;
+  border: none;
+  background-color: #0062ff;
+  color: white;
+  cursor: pointer;
+}
+
+.ask_q_container {
+  position: fixed;
+  bottom: 5px;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  /* box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);  */
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+}
